@@ -1,1 +1,3 @@
+// RegEx for user mentions
 
+/<@!?(\d{17,19})>/g
