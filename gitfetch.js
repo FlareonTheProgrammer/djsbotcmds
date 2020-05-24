@@ -2,7 +2,7 @@ const Discord = require("discord.js");
 const hastebin = require("hastebin-gen");
 const os = require("os");
 exports.run = async (client, message) => {
-  if (os.hostname() === "ec2-deploy-stable") {
+  if (os.hostname() === client.config.stableDeployHost) {
     await message.channel.send(
       "Hostname confirmed. Fetching data from repository..."
     );
