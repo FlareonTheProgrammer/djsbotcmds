@@ -38,7 +38,7 @@ exports.run = async (client, message) => {
                 "Alright, just remember to reboot the bot to apply changes."
               );
             } else if (message.content.toLowerCase() == "yes") {
-              await message.reply("Bot is now rebooting.");
+              await message.reply("I am rebooting now.");
               await Promise.all(
                 client.commands.map((cmd) => client.unloadCommand(cmd))
               );
@@ -52,7 +52,7 @@ exports.run = async (client, message) => {
     return message.channel.send(
       "**ERROR**: ```Bot is not currently running on the designated stable release host.\n" +
         "Run git fetch/pull yourself, stop being lazy. \n" +
-        `Expected: "ec2-deploy-stable"\n` +
+        `Expected: "${client.config.stableDeployHost}"\n` +
         `Found: "${os.hostname}" instead.\n\`\`\``
     );
   }
@@ -62,7 +62,7 @@ exports.conf = {
   enabled: true,
   guildOnly: false,
   aliases: ["gitpull", "update"],
-  permLevel: "Bot Owner",
+  permLevel: "Bot Admin",
 };
 
 exports.help = {
