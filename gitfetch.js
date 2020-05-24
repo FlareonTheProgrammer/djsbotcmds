@@ -4,7 +4,7 @@ const os = require("os");
 exports.run = async (client, message) => {
   if (os.hostname() === client.config.stableDeployHost) {
     await message.channel.send(
-      "Hostname confirmed. Fetching data from repository..."
+      `Hostname confirmed. Fetching data from ${client.config.repoURL}...`
     );
     const { exec } = require("child_process");
     exec("git fetch && git pull", async (err, stdout, stderr) => {
@@ -52,7 +52,7 @@ exports.run = async (client, message) => {
     return message.channel.send(
       "**ERROR**: ```Bot is not currently running on the designated stable release host.\n" +
         "Run git fetch/pull yourself, stop being lazy. \n" +
-        `Expected: "ec2-deploy-stable"\n` +
+        `Expected: "${client.config.stableDeployHost}"\n` +
         `Found: "${os.hostname}" instead.\n\`\`\``
     );
   }
