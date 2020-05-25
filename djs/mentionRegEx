@@ -1,0 +1,8 @@
+// For user mentions
+/<@!?(\d{17,19})>/g
+
+// For role mentions
+/<@&(\d{17,19})>/g
+
+// For channel mentions (Yeah I know they're not *really* mentions)
+/<#(\d{17,19})>/g
