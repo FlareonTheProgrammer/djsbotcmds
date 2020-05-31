@@ -1,6 +1,6 @@
 const { Command } = require("klasa");
 const request = require("request-promise-native");
-const ttvClient = require("../auth.json").ttvClient;
+const ttvClient = require("../../auth.json").ttvClient;
 
 module.exports = class extends Command {
   constructor(...args) {
