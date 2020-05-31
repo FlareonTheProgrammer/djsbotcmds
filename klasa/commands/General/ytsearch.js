@@ -1,6 +1,6 @@
 const { Command } = require("klasa");
 const request = require("request-promise-native");
-const apiKey = require("../auth.json").ytApi.key;
+const apiKey = require("../../auth.json").ytApi.key;
 module.exports = class extends Command {
   constructor(...args) {
     super(...args, {
